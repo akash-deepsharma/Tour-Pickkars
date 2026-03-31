@@ -1,0 +1,185 @@
+/* ============================================================
+   Tour Categories - Premium Discovery Experience
+   ============================================================ */
+
+.category-area {
+  padding: 120px 0;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+/* --- Section Header --- */
+.category-area .sub-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.category-area .sec-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--title-color);
+  margin-bottom: 60px;
+  line-height: 1.2;
+}
+
+/* --- Professional Category Card --- */
+.category-card.single {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 40px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.category-card-inner {
+  background: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card.single:hover .category-card-inner {
+  transform: translateY(-15px) rotate(1deg);
+  box-shadow: 0 30px 60px rgba(0, 193, 141, 0.12);
+  border-color: rgba(0, 193, 141, 0.2);
+}
+
+/* Image Section */
+.category-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.category-img {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.category-card.single:hover .category-img {
+  transform: scale(1.15);
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.category-card.single:hover .category-overlay {
+  opacity: 1;
+}
+
+/* Content Section */
+.category-content {
+  padding: 25px 20px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--title-color);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.category-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.category-card.single:hover .category-title {
+  color: var(--primary-color);
+}
+
+/* Action Button */
+.category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 100px;
+  background: rgba(0, 193, 141, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.category-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.category-card.single:hover .category-btn {
+  background: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 193, 141, 0.3);
+}
+
+.category-card.single:hover .category-btn svg {
+  transform: translateX(5px);
+}
+
+/* --- Swiper Enhancements --- */
+.categorySlider {
+  padding-bottom: 60px;
+}
+
+.category-area .slider-pagination .swiper-pagination-bullet {
+  background: #cbd5e1;
+  opacity: 0.6;
+  width: 12px;
+  height: 12px;
+  margin: 0 8px !important;
+}
+
+.category-area .slider-pagination .swiper-pagination-bullet-active {
+  background: var(--primary-color);
+  opacity: 1;
+  width: 35px;
+  border-radius: 6px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1199px) {
+  .category-image-wrapper {
+    height: 240px;
+  }
+}
+
+@media (max-width: 767px) {
+  .category-area {
+    padding: 80px 0;
+  }
+  .category-image-wrapper {
+    height: 220px;
+  }
+  .category-title {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,257 @@
+/* src/components/Partials/Header.css */
+
+/* Generic Resets */
+.th-header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.th-header a {
+  text-decoration: none;
+}
+
+/* 🔹 Header Top 🔹 */
+.th-header .header-top {
+  background: #0f172a;
+  /* Premium Slate 900 */
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 44px;
+  /* fixed height for smooth slide out */
+}
+
+/* Hide top bar smoothly on scroll */
+.th-header.scrolled .header-top {
+  height: 0;
+  border: none;
+  opacity: 0;
+}
+
+/* .header-top-inner {
+  height: 48px;
+} */
+
+.header-contact ul,
+.header-quick-links ul {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-contact .dropdown-icon {
+  color: #00ba9d;
+  font-size: 0.9rem;
+}
+
+.header-quick-links a {
+  color: #cbd5e1;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.header-quick-links a:hover {
+  color: #00ba9d;
+}
+
+/* 🔹 Main Navigation & Sticky Wrapper 🔹 */
+.th-header .sticky-wrapper {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 1000;
+  padding: 12px 0;
+}
+
+/* Glassmorphism Sticky State */
+.th-header.scrolled .sticky-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 8px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Logo */
+.th-header .header-logo img {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.th-header.scrolled .header-logo img {
+  transform: scale(0.9);
+}
+
+/* Main Menu Lists */
+.th-header .main-menu>ul {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.th-header .main-menu>ul>li {
+  position: relative;
+}
+
+/* Menu Links */
+.th-header .main-menu a,
+.th-header .main-menu .asdfasd {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Underline Animation */
+.th-header .main-menu>ul>li>a::after,
+.th-header .main-menu>ul>li>.asdfasd::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #00ba9d;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.th-header .main-menu>ul>li:hover>a::after,
+.th-header .main-menu>ul>li:hover>.asdfasd::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.th-header .main-menu a:hover,
+.th-header .main-menu .asdfasd:hover {
+  color: #00ba9d;
+}
+
+/* Dropdown Arrow Wrapper Overrides */
+.th-header .main-menu .menu-item-has-children>.asdfasd {
+  padding-right: 18px;
+}
+
+.th-header .main-menu .menu-item-has-children>.asdfasd::after {
+  display: none;
+  /* Hide hover underline animation */
+}
+
+.th-header .main-menu .menu-item-has-children>.asdfasd::before {
+  content: "▾";
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #64748b;
+}
+
+.th-header .main-menu .menu-item-has-children:hover>.asdfasd::before {
+  transform: rotate(180deg);
+  color: #00ba9d;
+}
+
+/* 🔹 Dropdown Sub-menu 🔹 */
+.th-header .main-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 0;
+  /* width: 260px; */
+  max-width: 360px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.th-header .main-menu li:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.th-header .main-menu .sub-menu li {
+  width: 100%;
+}
+
+.th-header .main-menu .sub-menu a {
+  padding: 8px 24px;
+  width: 100%;
+  color: #475569;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.th-header .main-menu .sub-menu a::after {
+  display: none;
+  /* No underline in dropdown */
+}
+
+.th-header .main-menu .sub-menu a:hover {
+  background: #f8fafc;
+  color: #00ba9d;
+  padding-left: 30px;
+  /* Slight indent hover effect for premium feel */
+}
+
+/* Mobile Toggle */
+.th-menu-toggle {
+  background: transparent;
+  border: none;
+  color: #0f172a;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+.th-menu-toggle:hover {
+  color: #00ba9d;
+}

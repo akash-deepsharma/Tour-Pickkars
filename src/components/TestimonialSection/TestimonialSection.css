@@ -1,0 +1,288 @@
+/* ============================================================
+   Testimonial Section — Premium Dark-Gradient Layout
+   ============================================================ */
+
+.testi-area {
+  padding: 100px 0 80px;
+  background: linear-gradient(135deg, #0a1628 0%, #0d2137 50%, #0a1e30 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative glow blobs */
+.testi-area::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  left: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 186, 157, 0.1) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.testi-area::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  right: -100px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(0, 186, 157, 0.07) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.testi-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.testi-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+
+.testi-eyebrow::before,
+.testi-eyebrow::after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+
+.testi-heading {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.testi-heading span {
+  color: var(--primary-color);
+}
+
+/* ── Slider Wrapper ── */
+.testi-slider-wrap {
+  position: relative;
+  z-index: 2;
+  padding: 20px 0 60px;
+}
+
+/* ── Individual Card ── */
+.testi-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 36px 30px 30px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.testi-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(0, 186, 157, 0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.testi-card:hover {
+  border-color: rgba(0, 186, 157, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 186, 157, 0.15);
+  transform: translateY(-8px);
+}
+
+.testi-card:hover::before {
+  opacity: 1;
+}
+
+/* Big decorative quote mark */
+.testi-quote-mark {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 7rem;
+  font-family: Georgia, serif;
+  line-height: 1;
+  color: rgba(0, 186, 157, 0.12);
+  font-weight: 900;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Stars ── */
+.testi-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.testi-stars svg,
+.testi-stars .fa-star,
+.testi-stars span {
+  font-size: 0.85rem;
+  color: #fbbf24;
+}
+
+/* ── Review Text ── */
+.testi-text-wrap {
+  /* Exactly 6 lines tall: line-height 1.8 × 0.97rem × 6 ≈ 10.4rem */
+  max-height: 10.4rem;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 6px;
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,186,157,0.4) transparent;
+}
+
+.testi-text-wrap::-webkit-scrollbar {
+  width: 4px;
+}
+
+.testi-text-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.testi-text-wrap::-webkit-scrollbar-thumb {
+  background: rgba(0, 186, 157, 0.4);
+  border-radius: 10px;
+}
+
+.testi-text-wrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 186, 157, 0.7);
+}
+
+.testi-text {
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── Profile ── */
+.testi-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.testi-avatar {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.testi-avatar img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+}
+
+.testi-avatar::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 186, 157, 0.3);
+}
+
+.testi-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testi-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 2px;
+}
+
+.testi-role {
+  font-size: 0.78rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── Custom Swiper Pagination ── */
+.testi-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.testi-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.testi-pagination .swiper-pagination-bullet-active {
+  background: var(--primary-color);
+  width: 28px;
+  border-radius: 10px;
+}
+
+/* Override inline swiper pagination */
+.testiSlider1.swiper ~ .testi-pagination .swiper-pagination-bullet {
+  display: inline-block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+  .testi-area {
+    padding: 80px 0 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testi-area {
+    padding: 60px 0 50px;
+  }
+
+  .testi-card {
+    padding: 28px 22px 24px;
+  }
+
+  .testi-quote-mark {
+    font-size: 5rem;
+  }
+}

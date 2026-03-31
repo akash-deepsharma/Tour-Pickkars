@@ -1,0 +1,52 @@
+"use client"
+import { useState } from "react";
+import RequestCallback from "../HelpingCompnents/RequestCallback";
+
+export default function ({ id, itinerary_pdf }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="min_box-detail asdfasdfasdfasd Age_limit container my-6 mt-24">
+      <div className="d-flex align-items-center justify-content-center gap-3">
+        
+        <a
+          href="https://wa.me/919876543210"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="d-flex align-items-center justify-content-center rounded-circle"
+          style={{
+            width: "50px",
+            minWidth: "50px",
+            height: "50px",
+            backgroundColor: "#e9f9ee",
+          }}
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+            alt="WhatsApp"
+            style={{ width: "24px", height: "24px" }}
+          />
+        </a>
+
+        {/* Send Query Button */}
+        <button
+          onClick={() => setOpen(id)}
+          className="btn btn-primary w-100 px-4 py-2 rounded-pill fw-semibold"
+        >
+          Send Query
+        </button>
+
+        {/* Get PDF Button */}
+        {itinerary_pdf != null && (
+          <a
+            href={itinerary_pdf}
+            target="_blank"
+            className="btn btn-primary w-100 px-4 py-2 rounded-pill fw-semibold"
+          >
+            Get PDF
+          </a>
+        )}
+      </div>
+      {open && <RequestCallback open={open} setOpen={setOpen} />}
+    </div>
+  );
+}
